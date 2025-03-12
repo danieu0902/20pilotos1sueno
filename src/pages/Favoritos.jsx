@@ -62,7 +62,12 @@ const Favoritos = () => {
     <Container>
       <h1>⭐ Pilotos Favoritos</h1>
       {favoritos.length === 0 ? (
-        <p>No hay pilotos en favoritos</p>
+        <div>
+             <p>No hay pilotos en favoritos</p>
+        {/* <img src="https://media1.tenor.com/m/Dcr0r2g05GUAAAAd/carvajal-musiala.gif" alt="" />
+        <img src="https://media1.tenor.com/m/1dopRQonB-IAAAAd/fernando-alonso-fernando.gif" alt="" /> */}
+        <img src="https://media1.tenor.com/m/b_zBOBMczzgAAAAd/fernando-alonso-aston-martin-f1.gif" alt="" />
+        </div>
       ) : (
         <PilotosGrid>
           {favoritos.map((p) => (
