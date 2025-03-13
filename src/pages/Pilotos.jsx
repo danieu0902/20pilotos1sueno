@@ -141,7 +141,7 @@ const addToFavorites = (piloto) => {
     localStorage.setItem('favoritos', JSON.stringify(favoritos));
     alert('Piloto agregado a favoritos');
   } else {
-    alert('Este piloto ya está en favoritos');
+    alert('Solo puedes tener 1 piloto favorito.');
   }
 };
 
