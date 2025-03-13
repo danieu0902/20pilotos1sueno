@@ -39,6 +39,12 @@ const PilotoCard = styled.div`
   border-radius: 8px;
   text-align: center;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out; /* Agregamos transición */
+
+  &:hover {
+    transform: scale(1.05); /* Aumentamos el tamaño en un 5% */
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2); /* Mejoramos la sombra */
+  }
 `;
 
 const PilotoImage = styled.img`

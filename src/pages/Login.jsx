@@ -59,14 +59,19 @@ const LinkText = styled.p`
 `;
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // Estados separados para cada formulario
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+
+  const [registerEmail, setRegisterEmail] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
+
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
       alert("Inicio de sesión exitoso");
       navigate("/");
     } catch (error) {
@@ -77,7 +82,7 @@ const Login = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
       alert("Cuenta creada con éxito");
       navigate("/");
     } catch (error) {
@@ -88,37 +93,39 @@ const Login = () => {
   return (
     <Container>
       <FormContainer>
+        {/* --- FORMULARIO DE LOGIN --- */}
         <Title>Iniciar Sesión</Title>
         <form onSubmit={handleLogin}>
           <Input 
             type="email" 
             placeholder="Email" 
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
+            value={loginEmail} 
+            onChange={(e) => setLoginEmail(e.target.value)} 
           />
           <Input 
             type="password" 
             placeholder="Contraseña" 
-            value={password} 
-            onChange={(e) => setPassword(e.target.value)} 
+            value={loginPassword} 
+            onChange={(e) => setLoginPassword(e.target.value)} 
           />
           <Button type="submit">Entrar</Button>
         </form>
 
         <LinkText>¿No tienes cuenta?</LinkText>
 
+        {/* --- FORMULARIO DE REGISTRO --- */}
         <form onSubmit={handleRegister}>
           <Input 
             type="email" 
             placeholder="Email" 
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
+            value={registerEmail} 
+            onChange={(e) => setRegisterEmail(e.target.value)} 
           />
           <Input 
             type="password" 
             placeholder="Contraseña" 
-            value={password} 
-            onChange={(e) => setPassword(e.target.value)} 
+            value={registerPassword} 
+            onChange={(e) => setRegisterPassword(e.target.value)} 
           />
           <Button type="submit">Registrarse</Button>
         </form>
